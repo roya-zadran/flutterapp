@@ -44,57 +44,38 @@ class HomePage extends StatelessWidget {
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 300,
-              height: 100,
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.red,
-
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(30),
-                child: Text(
-                  "Hey Girl, You are strong!",
-                  style: TextStyle(color: Colors.white),
+      body: Stack(
+        children: [
+          Image(
+            image: AssetImage("assets/images/download.jpg"),
+            fit: BoxFit.cover,
+            height: double.infinity,
+          ),
+          Column(
+            children: [
+              Container(
+                width: 300,
+                height: 100,
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.red,
+              
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(30),
+                  child: Text(
+                    "Hey Girl, You are strong!",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.all(10),
-              width: 300,
-              height: 100,
-              decoration: BoxDecoration(
-                color: Colors.red,
+            ],
+          ),
 
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(30),
-                child: Text(
-                  "You will be most strongest ever!",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Image(
-                  image: NetworkImage("https://unsplash.com/s/photos/river"),
-                 height: 40,
-                  width: 20,
-                ),
-
-              ],
-            ),
-          ],
-        ),
+        ],
       ),
+
       floatingActionButton: FloatingActionButton(onPressed: () {}),
     );
   }
