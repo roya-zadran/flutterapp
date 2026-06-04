@@ -28,15 +28,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_rounded),
-            label: "Profile",
-          ),
-        ],
-      ),
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -46,37 +37,25 @@ class HomePage extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          Image(
-            image: AssetImage("assets/images/download.jpg"),
-            fit: BoxFit.cover,
-            height: double.infinity,
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: ListTile(
+              tileColor: Colors.red,
+              leading: Icon(Icons.arrow_back_ios, size: 20,),
+              trailing: Icon(Icons.publish_rounded, size: 20),
+            ),
           ),
-          Column(
-            children: [
-              Container(
-                width: 300,
-                height: 100,
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Colors.red,
-              
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(30),
-                  child: Text(
-                    "Hey Girl, You are strong!",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
-            ],
-          ),
-
         ],
       ),
-
-      floatingActionButton: FloatingActionButton(onPressed: () {}),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_rounded),
+            label: "Profile",
+          ),
+        ],
+      ),
     );
   }
 }
