@@ -12,10 +12,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.cyan,
-          brightness: Brightness.light,
-        ),
+        primarySwatch: Colors.orange,
+          brightness: Brightness.dark,
       ),
       home: HomePage(),
     );
@@ -27,34 +25,54 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "Login",
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400),
+    return SafeArea(
+      child: Scaffold(
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              DrawerHeader(child: Text("Settings")),
+              ListTile(
+                title: Text("Home"),
+                onTap: () {
+                  print("Go to home");
+                },
+              ),
+              ListTile(
+                title: Text("Profile"),
+                onTap: () {
+                  print("Go to user Profile");
+                },
+              ),
+              ListTile(
+                title: Text("Feedback"),
+                onTap: () {
+                  print("Go to Feedback Form");
+                },
+              ),
+            ],
+          ),
         ),
-      ),
-      body: Stack(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: ListTile(
-              tileColor: Colors.red,
-              leading: Icon(Icons.arrow_back_ios, size: 20,),
-              trailing: Icon(Icons.publish_rounded, size: 20),
-            ),
+        appBar: AppBar(centerTitle: true, title: Text("GoPu")),
+        floatingActionButton: Align(
+          alignment: Alignment.bottomRight,
+          child: FloatingActionButton(
+            onPressed: () {
+              print("It is pressed.");
+            },
+            backgroundColor: Colors.orange,
+            child: Icon(Icons.add),
           ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_rounded),
-            label: "Profile",
-          ),
-        ],
+        ),
+        bottomNavigationBar: NavigationBar(
+          destinations: [
+            NavigationDestination(icon: Icon(Icons.home), label: "Home"),
+            NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
+          ],
+          onDestinationSelected: (value) {
+            print(value);
+          },
+          selectedIndex: 1,
+        ),
       ),
     );
   }
