@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutterapp/widgets/navbar_widget.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -13,66 +13,29 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.orange,
-          brightness: Brightness.dark,
+        brightness: Brightness.dark,
       ),
-      home: HomePage(),
+      home: MyHomePage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: Drawer(
-          child: ListView(
-            children: [
-              DrawerHeader(child: Text("Settings")),
-              ListTile(
-                title: Text("Home"),
-                onTap: () {
-                  print("Go to home");
-                },
-              ),
-              ListTile(
-                title: Text("Profile"),
-                onTap: () {
-                  print("Go to user Profile");
-                },
-              ),
-              ListTile(
-                title: Text("Feedback"),
-                onTap: () {
-                  print("Go to Feedback Form");
-                },
-              ),
-            ],
-          ),
-        ),
         appBar: AppBar(centerTitle: true, title: Text("GoPu")),
-        floatingActionButton: Align(
-          alignment: Alignment.bottomRight,
-          child: FloatingActionButton(
-            onPressed: () {
-              print("It is pressed.");
-            },
-            backgroundColor: Colors.orange,
-            child: Icon(Icons.add),
-          ),
-        ),
-        bottomNavigationBar: NavigationBar(
-          destinations: [
-            NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-            NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
-          ],
-          onDestinationSelected: (value) {
-            print(value);
-          },
-          selectedIndex: 1,
-        ),
+        bottomNavigationBar: NavbarWidget(),
       ),
     );
   }
