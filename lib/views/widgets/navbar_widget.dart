@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import 'notifiers.dart';
+
 class NavbarWidget extends StatefulWidget {
   const NavbarWidget({super.key});
 
@@ -7,20 +10,19 @@ class NavbarWidget extends StatefulWidget {
 }
 
 class _NavbarWidgetState extends State<NavbarWidget> {
-  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    return NavigationBar(
-      destinations: [
+    return ValueListenableBuilder(valueListenable: selectedPageNotifier, builder: (context, selectedPage, child) {
+      return NavigationBar(destinations: [
         NavigationDestination(icon: Icon(Icons.home), label: "Home"),
         NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
       ],
-      onDestinationSelected: (value) {
-        setState(() {
-          currentIndex = value;
-        });
-      },
-      selectedIndex: currentIndex,
-    );
+        onDestinationSelected: (int value) {
+          selectedPageNotifier.value = value;
+        },
+        selectedIndex: selectedPage,
+        );
+    },);
   }
 }
