@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/views/pages/home_page.dart';
 import 'package:flutterapp/views/pages/profile_page.dart';
-import 'package:flutterapp/views/widgets/notifiers.dart';
+import 'package:flutterapp/data/notifiers.dart';
 
 import 'navbar_widget.dart' show NavbarWidget;
 
@@ -13,11 +13,33 @@ class WidgetTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Flutter Map"), centerTitle: true),
+      appBar: AppBar(
+        actions: [
+          ValueListenableBuilder(
+            valueListenable: isDarkModeNotifier,
+            builder: (context, isDarkMode, child) {
+              return IconButton(
+                onPressed: () {
+                  // Change the value of is DarkModeNotifier
+                  isDarkModeNotifier.value = !isDarkModeNotifier.value;
+                },
+                icon: isDarkMode == true
+                    ? Icon(Icons.light_mode_outlined, color: Colors.deepOrangeAccent)
+                    : Icon(Icons.dark_mode, color: Colors.orangeAccent,),
+              );
+            },
+          ),
+        ],
+        title: Text("Flutter Map"),
+        centerTitle: true,
+      ),
       bottomNavigationBar: NavbarWidget(),
-      body: ValueListenableBuilder(valueListenable: selectedPageNotifier, builder: (context, selectedPage, child) {
-        return pages.elementAt(selectedPage);
-      },)
+      body: ValueListenableBuilder(
+        valueListenable: selectedPageNotifier,
+        builder: (context, selectedPage, child) {
+          return pages.elementAt(selectedPage);
+        },
+      ),
     );
   }
 }
