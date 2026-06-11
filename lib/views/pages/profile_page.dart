@@ -12,7 +12,7 @@ class _ProfilePageState extends State<ProfilePage> {
   bool? isChecked = false;
   bool isSwitched = false;
   double sliderValue = 0.0;
-
+St
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -20,6 +20,10 @@ class _ProfilePageState extends State<ProfilePage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
+           DropdownButton(items: [
+             DropdownMenuItem(child: Text("Option 1"),),
+           ], onChanged: (value){
+           }),
             TextField(
               decoration: InputDecoration(border: OutlineInputBorder()),
               controller: controller,
@@ -63,30 +67,18 @@ class _ProfilePageState extends State<ProfilePage> {
               max: 100,
               divisions: 100,
             ),
-            Image.asset("assets/images/download.jpg"),
-            Image.asset("assets/images/download.jpg"),
-            Image.asset("assets/images/download.jpg"),
             InkWell(
               onTap: () {
                 print("It is clicked InkWell");
               },
               child: Container(height: 100, width: double.infinity, color: Colors.deepOrange),
             ),
-            Image.asset("assets/images/download.jpg"),
             GestureDetector(
               onTap: () {
                 print("It is clicked GestureDetector");
               },
               child: Container(height: 100, width: double.infinity, color: Colors.deepOrange),
             ),
-            CloseButton(color: Colors.deepOrange,onPressed: (){
-            },),
-            TextButton(onPressed: (){}, child: Text("Click Me TextButton"), ),
-            FilledButton(onPressed: (){}, child: Text("Click Me Filled Button"), ),
-            ElevatedButton(onPressed: (){}, child: Text("Click Me ElevatedButton"), ),
-            BackButton(color: Colors.deepOrange,),
-            OutlinedButton(onPressed: (){}, child: Text("Click Me OutlinedButton"),)
-
 
           ],
         ),
