@@ -12,7 +12,8 @@ class _ProfilePageState extends State<ProfilePage> {
   bool? isChecked = false;
   bool isSwitched = false;
   double sliderValue = 0.0;
-St
+String? SelectedItem = "e1";
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -20,10 +21,18 @@ St
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-           DropdownButton(items: [
-             DropdownMenuItem(child: Text("Option 1"),),
-           ], onChanged: (value){
-           }),
+           DropdownButton(
+             value: SelectedItem,
+             items: [
+             DropdownMenuItem(child: Text('Option 1'), value: "e1",),
+             DropdownMenuItem(child: Text('Option 2'), value: "e2",),
+             DropdownMenuItem(child: Text('Option 3'), value: "e3",),
+           ], onChanged: ( value) {
+               setState(() {
+                 SelectedItem = value;
+               });
+
+           },),
             TextField(
               decoration: InputDecoration(border: OutlineInputBorder()),
               controller: controller,
@@ -71,15 +80,22 @@ St
               onTap: () {
                 print("It is clicked InkWell");
               },
-              child: Container(height: 100, width: double.infinity, color: Colors.deepOrange),
+              child: Container(
+                height: 100,
+                width: double.infinity,
+                color: Colors.deepOrange,
+              ),
             ),
             GestureDetector(
               onTap: () {
                 print("It is clicked GestureDetector");
               },
-              child: Container(height: 100, width: double.infinity, color: Colors.deepOrange),
+              child: Container(
+                height: 100,
+                width: double.infinity,
+                color: Colors.deepOrange,
+              ),
             ),
-
           ],
         ),
       ),
