@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/data/notifiers.dart';
 import 'package:flutterapp/views/widgets/hero_widget.dart';
 import 'package:flutterapp/views/widgets/widget_tree.dart';
 
@@ -16,6 +17,7 @@ class WelcomePage extends StatelessWidget {
           HeroWidget(),
             FilledButton(
               onPressed: () {
+                selectedPageNotifier.value = 0;
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(

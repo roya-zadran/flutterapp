@@ -11,7 +11,11 @@ class HeroWidget extends StatelessWidget {
       // ClipRReact round each widget borders
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20.0),
-        child: Image.asset("assets/images/download.jpg"),
+        child: Image.asset(
+          "assets/images/bg.jpg",
+          color: Colors.blue.shade600,
+          colorBlendMode: BlendMode.modulate,
+        ),
       ),
     );
   }

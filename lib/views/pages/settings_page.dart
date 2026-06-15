@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/views/widgets/hero_widget.dart';
 
 class SettingsPage extends StatefulWidget {
   final String title;
+
   const SettingsPage({super.key, required this.title});
 
   @override
@@ -55,6 +57,20 @@ class _SettingsPageState extends State<SettingsPage> {
                 },
               ),
               Text(controller.text),
+              ElevatedButton(
+                onPressed: () {
+                  // SnackBar Widget display a small massage at the bottom of Scaffold.
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Image.asset('assets/images/bg.jpg'),
+                      duration: Duration(seconds: 2),
+                      behavior: SnackBarBehavior.floating,
+
+                    ),
+                  );
+                },
+                child: Text("Click Me"),
+              ),
               CheckboxListTile.adaptive(
                 title: Text("Click Me"),
                 value: isChecked,
