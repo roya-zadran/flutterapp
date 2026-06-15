@@ -62,7 +62,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   // SnackBar Widget display a small massage at the bottom of Scaffold.
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Image.asset('assets/images/bg.jpg'),
+                      content: Text("Hi, your message has been sent!"),
                       duration: Duration(seconds: 2),
                       behavior: SnackBarBehavior.floating,
 
