@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key});
+  final String title;
+  const SettingsPage({super.key, required this.title});
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
@@ -18,7 +19,15 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Settings"),
+        // In statefull widget for the varibles that takes passing data,
+        // u must also use ".widget" keyword.
+        title: Text(widget.title),
+        automaticallyImplyLeading: false,
+        leading: BackButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
