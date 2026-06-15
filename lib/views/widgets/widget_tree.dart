@@ -33,19 +33,21 @@ class WidgetTree extends StatelessWidget {
               );
             },
           ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return SettingsPage(title: "Settings",);
-                  },
-                ),
-              );
-            },
-            icon: Icon(Icons.settings),
-          ),
+          ValueListenableBuilder(valueListenable: isDarkModeNotifier, builder: (context, isDarkMode, child) {
+            return IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return SettingsPage(title: "Settings",);
+                    },
+                  ),
+                );
+              },
+              icon: Icon(Icons.settings, color: isDarkMode == true? Colors.deepOrangeAccent: Colors.orangeAccent,),
+            );
+          },)
         ],
         title: Text("Flutter Map"),
         centerTitle: true,
