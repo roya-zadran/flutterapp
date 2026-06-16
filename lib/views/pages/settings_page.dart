@@ -65,12 +65,34 @@ class _SettingsPageState extends State<SettingsPage> {
                       content: Text("Hi, your message has been sent!"),
                       duration: Duration(seconds: 2),
                       behavior: SnackBarBehavior.floating,
-
                     ),
                   );
                 },
                 child: Text("Click Me"),
               ),
+              // AlertDialog() another kind of pop up message. AboutDialog() shows the liscense of the app.
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: Text('Hi'),
+                      content: Text("Your massage has been sent!"),
+                      actions: [
+                        FilledButton(
+                          onPressed: () {
+                            // This function close the open page and brings its previous.
+                            Navigator.pop(context);
+                          },
+                          child: Text("Close"),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                child: Text("Click Me"),
+              ),
+
               CheckboxListTile.adaptive(
                 title: Text("Click Me"),
                 value: isChecked,
