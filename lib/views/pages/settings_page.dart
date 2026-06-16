@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp/views/widgets/hero_widget.dart';
 
 class SettingsPage extends StatefulWidget {
   final String title;
@@ -71,11 +70,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 child: Text("Click Me"),
               ),
               Divider(color: Colors.deepOrange, endIndent: 150, thickness: 1),
-              // Vertical Divider
-              Container(
-                height: 100,
-                child: VerticalDivider(thickness: 1, color: Colors.deepOrange),
-              ),
               // AlertDialog() another kind of pop up message. AboutDialog() shows the liscense of the app.
               ElevatedButton(
                 onPressed: () {
