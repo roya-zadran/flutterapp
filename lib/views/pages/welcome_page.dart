@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/data/notifiers.dart';
+import 'package:flutterapp/views/pages/login_page.dart';
 import 'package:flutterapp/views/widgets/widget_tree.dart';
 import 'package:lottie/lottie.dart';
 
@@ -16,7 +17,7 @@ class WelcomePage extends StatelessWidget {
           children: [
             Lottie.asset("assets/lotties/welcome.json"),
             FittedBox(child: Text("Flutter Mapp", style: TextStyle(fontSize: 20, letterSpacing: 20),)),
-            SizedBox(height: 20.0), 
+            SizedBox(height: 20.0),
             FilledButton(
               onPressed: () {
                 selectedPageNotifier.value = 0;
@@ -24,7 +25,7 @@ class WelcomePage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return WidgetTree();
+                      return LoginPage();
                     },
                   ),
                 );
@@ -41,7 +42,7 @@ class WelcomePage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return WidgetTree();
+                      return LoginPage();
                     },
                   ),
                 );
