@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/data/notifiers.dart';
 import 'package:flutterapp/views/pages/login_page.dart';
-import 'package:flutterapp/views/widgets/widget_tree.dart';
 import 'package:lottie/lottie.dart';
 
 class WelcomePage extends StatelessWidget {
-  const WelcomePage({super.key});
+  const WelcomePage({super.key, required });
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +31,7 @@ class WelcomePage extends StatelessWidget {
               },
               child: Text("Get Started"),
               style: FilledButton.styleFrom(
+                backgroundColor: Colors.tealAccent,
                 minimumSize: Size(double.infinity, 40.0),
               ),
             ),
