@@ -25,6 +25,8 @@ class _LoginPageState extends State<LoginPage> {
 
   TextEditingController EmailController = TextEditingController();
   TextEditingController PasswordController = TextEditingController();
+  String confirmedEmail = "123";
+  String confirmedPassword = "123";
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,20 +63,13 @@ class _LoginPageState extends State<LoginPage> {
               },
             ),
             SizedBox(height: 20.0),
-            FilledButton(
-              onPressed: () {
-                selectedPageNotifier.value = 0;
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return WidgetTree();
-                    },
-                  ),
-                );
+            ElevatedButton(
+              onPressed: (){
+                login();
               },
               child: Text("Login"),
-              style: FilledButton.styleFrom(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.black,
                 backgroundColor: Colors.tealAccent,
                 minimumSize: Size(double.infinity, 40.0),
               ),
@@ -83,5 +78,19 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+  void login (){
+    if(confirmedEmail == EmailController.text && confirmedPassword == PasswordController.text){
+      selectedPageNotifier.value = 0;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return WidgetTree();
+          },
+        ),
+      );
+    }
+
   }
 }

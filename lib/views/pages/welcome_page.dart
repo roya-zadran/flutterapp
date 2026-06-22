@@ -20,7 +20,7 @@ class WelcomePage extends StatelessWidget {
             FilledButton(
               onPressed: () {
                 selectedPageNotifier.value = 0;
-                Navigator.pushReplacement(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
@@ -38,7 +38,7 @@ class WelcomePage extends StatelessWidget {
             TextButton(style: TextButton.styleFrom(minimumSize: Size( double.infinity, 40.0)),
               onPressed: () {
                 selectedPageNotifier.value = 0;
-                Navigator.pushReplacement(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
