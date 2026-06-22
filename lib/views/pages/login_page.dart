@@ -4,7 +4,10 @@ import 'package:flutterapp/views/widgets/hero_widget.dart';
 import 'package:flutterapp/views/widgets/widget_tree.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final String myTitle;
+  final String buttonTitle;
+
+  const LoginPage({super.key, required this.myTitle, required this.buttonTitle});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -25,62 +28,69 @@ class _LoginPageState extends State<LoginPage> {
 
   TextEditingController EmailController = TextEditingController();
   TextEditingController PasswordController = TextEditingController();
-  String confirmedEmail = "123";
-  String confirmedPassword = "123";
+  late String confirmedEmail = "123";
+  late String confirmedPassword = "456";
 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(25),
-        child: Column(
-          children: [
-            HeroWidget(title: "Login"),
-            SizedBox(height: 15),
-            TextField(
-              controller: EmailController,
-              decoration: InputDecoration(
-                hintText: "Email",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(25),
+            child: Column(
+              children: [
+                HeroWidget(title: widget.myTitle,),
+                SizedBox(height: 15),
+                TextField(
+                  controller: EmailController,
+                  decoration: InputDecoration(
+                    hintText: "Email",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  onEditingComplete: () {
+                    setState(() {});
+                  },
                 ),
-              ),
-              onEditingComplete: () {
-                setState(() {});
-              },
-            ),
-            SizedBox(height: 15),
-            TextField(
-              controller: PasswordController,
-              decoration: InputDecoration(
-                hintText: "Password",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                SizedBox(height: 15),
+                TextField(
+                  controller: PasswordController,
+                  decoration: InputDecoration(
+                    hintText: "Password",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  onEditingComplete: () {
+                    setState(() {});
+                  },
                 ),
-              ),
-              onEditingComplete: () {
-                setState(() {});
-              },
+                SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    login();
+                  },
+                  child: Text(widget.buttonTitle),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    backgroundColor: Colors.tealAccent,
+                    minimumSize: Size(double.infinity, 40.0),
+                  ),
+                ),
+                SizedBox(height: 50),
+              ],
             ),
-            SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: (){
-                login();
-              },
-              child: Text("Login"),
-              style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.black,
-                backgroundColor: Colors.tealAccent,
-                minimumSize: Size(double.infinity, 40.0),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
   }
-  void login (){
-    if(confirmedEmail == EmailController.text && confirmedPassword == PasswordController.text){
+
+  void login() {
+    if (confirmedEmail == EmailController.text &&
+        confirmedPassword == PasswordController.text) {
       selectedPageNotifier.value = 0;
       Navigator.pushReplacement(
         context,
@@ -91,6 +101,5 @@ class _LoginPageState extends State<LoginPage> {
         ),
       );
     }
-
   }
 }

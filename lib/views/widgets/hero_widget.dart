@@ -23,13 +23,15 @@ class HeroWidget extends StatelessWidget {
             ),
           ),
         ),
-        Text(
-          title,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white60,
-            fontSize: 25,
-            letterSpacing: 45,
+        FittedBox(
+          child: Text(
+            title,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white60,
+              fontSize: 25,
+              letterSpacing: 45,
+            ),
           ),
         ),
       ],
