@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/data/notifiers.dart';
 import 'package:flutterapp/views/pages/welcome_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,10 @@ class MyApp extends StatefulWidget {
   @override
   State<MyApp> createState() => _MyAppState();
 }
-
+ initState () async{
+   final SharedPreferences prefs = await SharedPreferences.getInstance();
+   final bool? repeat = prefs.getBool('mykey');
+ }
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
