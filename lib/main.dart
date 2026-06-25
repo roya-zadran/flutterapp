@@ -16,6 +16,7 @@ class MyApp extends StatefulWidget {
  initState () async{
    final SharedPreferences prefs = await SharedPreferences.getInstance();
    final bool? repeat = prefs.getBool('mykey');
+   isDarkModeNotifier.value = repeat;
  }
 class _MyAppState extends State<MyApp> {
   @override
