@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/data/constants.dart';
 import 'package:flutterapp/views/pages/home_page.dart';
 import 'package:flutterapp/views/pages/profile_page.dart';
 import 'package:flutterapp/data/notifiers.dart';
@@ -7,7 +8,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'navbar_widget.dart' show NavbarWidget;
 
-const String key = "mykey";
 List<Widget> pages = [HomePage(), ProfilePage()];
 
 class WidgetTree extends StatelessWidget {
@@ -26,7 +26,7 @@ class WidgetTree extends StatelessWidget {
                   isDarkModeNotifier.value = !isDarkModeNotifier.value;
                   // it saves the value
                   final SharedPreferences prefs = await SharedPreferences.getInstance();
-                  await prefs.setBool('mykey', isDarkModeNotifier.value);
+                  await prefs.setBool(kMyKeyClass.myKey, isDarkModeNotifier.value);
                 },
                 icon: isDarkMode == true
                     ? Icon(

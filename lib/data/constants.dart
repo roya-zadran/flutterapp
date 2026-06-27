@@ -14,3 +14,6 @@ class KCardTextStyle {
     fontSize: 14,
   );
 }
+ class kMyKeyClass {
+  static const String myKey = "myKey";
+ }

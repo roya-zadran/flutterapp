@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/data/notifiers.dart';
 import 'package:flutterapp/views/pages/login_page.dart';
+import 'package:flutterapp/views/pages/onBoarding_page.dart';
 import 'package:lottie/lottie.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -12,7 +13,7 @@ class WelcomePage extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(30.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -26,7 +27,7 @@ class WelcomePage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return LoginPage(myTitle: "Register", buttonTitle: "Register",);
+                          return onBoardingPage();
                         },
                       ),
                     );

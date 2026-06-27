@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/data/constants.dart';
 import 'package:flutterapp/data/notifiers.dart';
 import 'package:flutterapp/views/pages/welcome_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,15 +10,19 @@ void main() {
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
-
+  void initState (){
+    Theme();
+  }
   @override
   State<MyApp> createState() => _MyAppState();
 }
- initState () async{
+//solve SharedPreference part.
+ void Theme ()async{
    final SharedPreferences prefs = await SharedPreferences.getInstance();
-   final bool? repeat = prefs.getBool('mykey');
+   final bool? repeat = prefs.getBool(kMyKeyClass.myKey);
    isDarkModeNotifier.value = repeat;
  }
+
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {

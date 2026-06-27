@@ -28,8 +28,7 @@ class _LoginPageState extends State<LoginPage> {
 
   TextEditingController EmailController = TextEditingController();
   TextEditingController PasswordController = TextEditingController();
-  late String confirmedEmail = "123";
-  late String confirmedPassword = "456";
+
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +69,16 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 20.0),
                 ElevatedButton(
                   onPressed: () {
-                    login();
+                    selectedPageNotifier.value = 0;
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return WidgetTree();
+                        },
+                      ),
+                          (route) => false,
+                    );
                   },
                   child: Text(widget.buttonTitle),
                   style: ElevatedButton.styleFrom(
@@ -88,19 +96,5 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void login() {
-    if (confirmedEmail == EmailController.text &&
-        confirmedPassword == PasswordController.text) {
-      selectedPageNotifier.value = 0;
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-          builder: (context) {
-            return WidgetTree();
-          },
-        ),
-        (route) => false,
-      );
-    }
-  }
+
 }
