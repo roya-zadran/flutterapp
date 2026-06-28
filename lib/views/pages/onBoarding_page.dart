@@ -22,14 +22,14 @@ class onBoardingPage extends StatelessWidget {
                 ),
                 FilledButton(
                   onPressed: () {
-                    Navigator.pushAndRemoveUntil(
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
                           return LoginPage(myTitle: "Register", buttonTitle:"Register");
                         },
                       ),
-                          (route) => false,
+
                     );
                   },
                   child: Text("Next"),

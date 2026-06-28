@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/data/constants.dart';
+import 'package:flutterapp/views/widgets/container_widget.dart';
 import 'package:lottie/lottie.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,29 +10,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
             Lottie.asset("assets/lotties/lottie.json"),
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(5),
-              child: Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Card", style: KCardTextStyle.cardTitleStyle),
-                      Text(
-                        "Description",
-                        style: KCardTextStyle.cardDescritionStyle,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            ContainerWidget(title: "Title", des: "This is a description"),
+            ContainerWidget(title: "Title", des: "This is a description"),
+            ContainerWidget(title: "Title", des: "This is a description"),
+            ContainerWidget(title: "Title", des: "This is a description"),
           ],
         ),
       ),
