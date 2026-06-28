@@ -4,20 +4,26 @@ import 'package:flutterapp/views/widgets/container_widget.dart';
 import 'package:lottie/lottie.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
+  final List<String> list =[
+    kConstantValues.KeyConcepts,
+    kConstantValues.fixBugs,
+    kConstantValues.code,
+    kConstantValues.CourseMaterial,
+    kConstantValues.Review,
+  ];
+  HomePage({super.key});
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [
             Lottie.asset("assets/lotties/lottie.json"),
-            ContainerWidget(title: "Title", des: "This is a description"),
-            ContainerWidget(title: "Title", des: "This is a description"),
-            ContainerWidget(title: "Title", des: "This is a description"),
-            ContainerWidget(title: "Title", des: "This is a description"),
+            // Generate a list automatically!
+            ...List.generate(5, (index) {
+              return ContainerWidget(title: list.elementAt(index), des: "Desc");
+            },)
           ],
         ),
       ),
