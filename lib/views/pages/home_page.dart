@@ -15,19 +15,22 @@ class HomePage extends StatelessWidget {
   HomePage({super.key});
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
-          children: [
-            HeroWidget(title: "Home", nextPage: CoursePage(),),
-            // Generate a list automatically! , (...) Tells flutter that this list is a list where it can have a list of several other widgets.
-            ...List.generate(list.length, (index) {
-              return ContainerWidget(title: list.elementAt(index), des: "Desc");
-            },)
-          ],
+    return LayoutBuilder(builder: (context, constraints) => FractionallySizedBox(
+      widthFactor: constraints.maxWidth > 500? 0.5: 1.0,
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Column(
+            children: [
+              HeroWidget(title: "Home", nextPage: CoursePage(),),
+              // Generate a list automatically! , (...) Tells flutter that this list is a list where it can have a list of several other widgets.
+              ...List.generate(list.length, (index) {
+                return ContainerWidget(title: list.elementAt(index), des: "Desc");
+              },)
+            ],
+          ),
         ),
       ),
-    );
+    ),);
   }
 }
