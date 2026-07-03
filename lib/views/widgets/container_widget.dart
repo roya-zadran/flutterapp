@@ -14,6 +14,7 @@ class ContainerWidget extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(2),
       child: Card(
+        margin: EdgeInsets.only(top: 10),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
