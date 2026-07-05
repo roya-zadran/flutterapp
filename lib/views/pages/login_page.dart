@@ -3,7 +3,9 @@ import 'package:flutterapp/data/notifiers.dart';
 import 'package:flutterapp/views/widgets/hero_widget.dart';
 import 'package:flutterapp/views/widgets/widget_tree.dart';
 
+
 class LoginPage extends StatefulWidget {
+
   final String myTitle;
   final String buttonTitle;
 
@@ -18,7 +20,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
   @override
+
   void dispose() {
     super.dispose();
     EmailController.dispose();

@@ -4,11 +4,13 @@ import 'package:flutterapp/views/pages/login_page.dart';
 import 'package:flutterapp/views/pages/onBoarding_page.dart';
 import 'package:lottie/lottie.dart';
 
+
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key, required });
-
   @override
   Widget build(BuildContext context) {
+    // MediaQuery has access to the size of the screen.
+    double ScreenWidth= MediaQuery.of(context).size.width;
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -16,7 +18,7 @@ class WelcomePage extends StatelessWidget {
             padding: EdgeInsets.all(30.0),
             child: LayoutBuilder(builder: (context, constraints) {
               return FractionallySizedBox(
-                widthFactor: constraints.maxWidth > 500 ? 0.5: 1,
+                widthFactor: ScreenWidth > 500 ? 0.5: 1,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
