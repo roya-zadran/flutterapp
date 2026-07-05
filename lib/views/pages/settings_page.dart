@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/views/pages/expanded_flexible_page.dart';
 
 class SettingsPage extends StatefulWidget {
   final String title;
@@ -84,7 +85,14 @@ class _SettingsPageState extends State<SettingsPage> {
                           FilledButton(
                             onPressed: () {
                               // This function close the open page and brings its previous.
-                              Navigator.pop(context);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return ExpandedFlexiblePage();
+                                  },
+                                ),
+                              );
                             },
                             child: Text("Close"),
                           ),
@@ -142,7 +150,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    print("It is clicked GestureDetector");
+
                   },
                   child: Container(
                     height: 100,
