@@ -12,14 +12,24 @@ class _ExpandedFlexiblePageState extends State<ExpandedFlexiblePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Column(children: [
-        Expanded(
-          // Makes the size bigger or smaller
-          flex: 6,
+      body: Row(children: [
+        // Flexible shrinks the widget based on the size of the content and it will not take all empty space.
+        Flexible(
+          flex: 2,
           child: Container(color: Colors.purple,),
         ),
-        Expanded( flex:  6,
+        Expanded(
+          flex: 1,
           child: Container(color: Colors.pink,),
+        ),
+        SizedBox(height: 20),
+        Expanded(
+          flex: 1,
+          child: Container(color: Colors.pink,),
+        ),
+        Flexible(
+          flex: 6,
+          child: Container(color: Colors.purple,),
         ),
       ]),
     );
