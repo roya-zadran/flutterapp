@@ -10,17 +10,16 @@ class CoursePage extends StatefulWidget {
   @override
   State<CoursePage> createState() => _CoursePageState();
 }
-
-void initSate() {
+ void initSate(){
   getData();
-}
-
-void getData() async {
-  var url = Uri.https('bored-api.appbrewery.com', '/random');
+ }
+void getData()async{
+  var url =
+  Uri.https('bored-api.appbrewery.com', '/random');
   var response = await http.get(url);
   if (response.statusCode == 200) {
     var jsonResponse =
-        convert.jsonDecode(response.body) as Map<String, dynamic>;
+    convert.jsonDecode(response.body) as Map<String, dynamic>;
     var itemCount = jsonResponse['activity'];
     print(itemCount);
   } else {
@@ -39,12 +38,7 @@ class _CoursePageState extends State<CoursePage> {
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: AnimatedCrossFade(
-                firstChild: Text("FirstChild"),
-                secondChild: Text("SecondChild"),
-                crossFadeState: CrossFadeState.showSecond,
-                duration: Duration(seconds: 5),
-              ),
+              child: Column(children: [HeroWidget(title: "Courses")]),
             ),
           ),
         ),
