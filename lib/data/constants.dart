@@ -20,9 +20,22 @@ class KCardTextStyle {
  }
 
  class kConstantValues {
-  static String KeyConcepts = "KeyConcepts ";
-  static String fixBugs = "Fix Bugs";
-  static String  code = "code";
-  static String CourseMaterial = "CourseMaterail" ;
-  static String Review = "Review";
+   static String KeyConcepts = "KeyConcepts ";
+   static String fixBugs = "Fix Bugs";
+   static String code = "code";
+   static String CourseMaterial = "CourseMaterail";
+
+   static String Review = "Review";
+
  }
+
+  class StudentCardPageStyles {
+  static const Color IconSColor = Colors.teal;
+  static const List<Color> FirstContainer = [Colors.teal, Colors.tealAccent];
+  }
+
+  final AppTitlestyle =  TextStyle(
+  fontWeight: FontWeight.bold,
+  letterSpacing: 3,
+  fontSize: 20,
+  );

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/data/constants.dart';
-import 'package:flutterapp/views/pages/course_page.dart';
 import 'package:flutterapp/views/widgets/container_widget.dart';
-import 'package:flutterapp/views/widgets/hero_widget.dart';
+import 'package:lottie/lottie.dart';
 
 class HomePage extends StatelessWidget {
   final List<String> list =[
@@ -22,7 +21,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             children: [
-              HeroWidget(title: "Home", nextPage: CoursePage(),),
+            Lottie.asset("assets/lotties/home.json"),
               // Generate a list automatically! , (...) Tells flutter that this list is a list where it can have a list of several other widgets.
               ...List.generate(list.length, (index) {
                 return ContainerWidget(title: list.elementAt(index), des: "Desc");

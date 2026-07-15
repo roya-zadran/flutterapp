@@ -15,18 +15,18 @@ class onBoardingPage extends StatelessWidget {
           body: Center(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(25),
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 200),
                 child: Column(
                   children: [
-                    Lottie.asset("assets/lotties/lottie.json"),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        "Learn Flutter with Flutter Map anytime and anywhere",
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(fontSize: 15),
-                      ),
+                    Lottie.asset("assets/lotties/welcome2.json"),
+
+                    SizedBox(height: 150),
+                    Text(
+                      "Learn Flutter with Flutter Map anytime and anywhere",
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(fontSize: 15),
                     ),
+                    SizedBox(height: 30,),
                     FilledButton(
                       onPressed: () {
                         Navigator.push(
